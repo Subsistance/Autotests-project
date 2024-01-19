@@ -19,7 +19,8 @@ class ProductPage(BasePage):
         try:
             product_name = self.parse_product_name()
             alert_product_name = self.browser.find_element(*ProductPageLocators.ALERT_PRODUCT_NAME)
-            assert product_name.text in alert_product_name.text, "Product name is different"
+            print(f"{alert_product_name.text}, {product_name.text}")
+            assert product_name.text == alert_product_name.text, "Product name is different"
         except NoSuchElementException as e:
             raise AssertionError(f"Element not found: {e}")
             
