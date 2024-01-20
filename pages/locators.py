@@ -14,3 +14,4 @@ class ProductPageLocators():
     PRODUCT_NAME = (By.XPATH, "//h1")
     BASKET_TOTAL = (By.CSS_SELECTOR, ".alertinner>p>strong")
     PRODUCT_PRICE = (By.CSS_SELECTOR, ".product_main>.price_color")
+    SUCCESS_MESSAGE = (By.CSS_SELECTOR, "#messages .alert-success:nth-child(1)")

@@ -19,7 +19,6 @@ class ProductPage(BasePage):
         try:
             product_name = self.parse_product_name()
             alert_product_name = self.browser.find_element(*ProductPageLocators.ALERT_PRODUCT_NAME)
-            print(f"{alert_product_name.text}, {product_name.text}")
             assert product_name.text == alert_product_name.text, "Product name is different"
         except NoSuchElementException as e:
             raise AssertionError(f"Element not found: {e}")
@@ -31,3 +30,9 @@ class ProductPage(BasePage):
             assert basket_total.text == product_price.text, "Product price and basket total are different"
         except NoSuchElementException as e:
             raise AssertionError(f"Element not found: {e}")
+        
+    def should_not_be_success_message(self):
+        assert self.is_not_element_present(*ProductPageLocators.SUCCESS_MESSAGE), "Success message is presented, but should not be"
+        
+    def success_message_should_disappear(self):
+        assert self.is_disappeared(*ProductPageLocators.SUCCESS_MESSAGE), "Success message is presented, but should not be"
