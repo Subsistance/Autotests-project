@@ -1,6 +1,3 @@
-from selenium.webdriver.common.by import By
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.common.exceptions import NoSuchElementException
 from pages.product_page import ProductPage
 from pages.login_page import LoginPage
 from pages.base_page import BasePage
